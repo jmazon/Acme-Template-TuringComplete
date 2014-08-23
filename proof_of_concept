@@ -9,7 +9,7 @@ use Acme::Template::TuringComplete;
 my $template = do { local $/; <DATA> };
 print Acme::Template::TuringComplete->interpret(
   $template,
-  'An argument',
+  'Badger',
   [qw(Iterating on an array)],
   'Iterating on a string',
   'Qrpelcgvat n zvyvgnel-tenqr pvcure',
@@ -26,10 +26,10 @@ Straight text
 ++++++++++[>+++++++>++++++++++>+++>+++++++++<<<<-]
 >++.>+.+++++++..+++.>++.>---.<<.+++.------.--------.>+.
 
-,>[-]+++[<.>-]
-
-,[. ]
+,>[-]+++[<{.}>-]
 
 ,[.]
+
+,[=.]=
 
 ,[[>>++++[>++++++++<-]<+<-[>+>+>-[>>>]<[[>+<-]>>+>]<<<<<-]]>>>[-]+>--[-[<->+++[-]]]<[++++++++++++<[>-[>+>>]>[+[<+>-]>+>>]<<<<<-]>>[<+>-]>[-[-<<[-]>>]<<[<<->>-]>>]<<[<<+>>-]]<[-]<.[-]<-]
