@@ -13,16 +13,16 @@ sub interpret {
       '-' => '$ram[$p]--;',
       '>' => '$p++;',
       '<' => '$p--;',
-      '[' => '{my $a=$ram[$p];while ($ram[$p] = ref $a ? shift @$a : looks_like_number $a ? $ram[$p] : ord substr($a,0,1,"")) {',
+      '[' => '{my$r=$ram[$p];while($ram[$p]=ref$r?shift@$r:looks_like_number$r?$ram[$p]:ord substr$r//"\0",0,1,""){',
       ']' => '}}',
-      '.' => '$output .= (defined $ram[$p] && looks_like_number $ram[$p]) ? chr $ram[$p] : $ram[$p];',
-      ',' => '$ram[$p] = shift @args;',
+      '.' => '$output.=defined$ram[$p]&&looks_like_number$ram[$p]?chr$ram[$p]:$ram[$p];',
+      ',' => '$ram[$p]=shift@args;',
     );
   my ($template,@args) = @_;
   my $program = '';
   for my $c ( $template =~ /./gs ) {
     my $op = $translation{$c};
-    $program .= $op // "\$output .= '$c';" . "\n";
+    $program .= $op // "\$output .= '$c';";
   }
 
   my @ram;
@@ -36,10 +36,10 @@ sub interpret {
 my $template = do { local $/; <DATA> };
 print interpret(
   $template,
-  'Argument',
-  [qw(iterating on an array)],
+  'An argument',
+  [qw(Iterating on an array)],
   'Iterating on a string',
-  'Military-grade encryption',
+  'Qrpelcgvat n zvyvgnel-tenqr pvcure',
 );
 
 __DATA__
