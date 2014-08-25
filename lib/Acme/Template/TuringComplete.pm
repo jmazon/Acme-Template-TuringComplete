@@ -7,8 +7,7 @@ use warnings;
 
 use Scalar::Util qw( looks_like_number );
 
-use Exporter;
-our @EXPORT = qw(interpret);
+our $VERSION = '0.01';
 
 sub interpret {
   my $class = shift;
